@@ -55,6 +55,18 @@ if __name__ == '__main__':
         num_proc=num_proc,
     )
 
+    # tokenized = DatasetDict({
+    #     'train': Dataset({
+    #         features: ['ids', 'len'],
+    #         num_rows: 8009762
+    #     }),
+    #     'val': Dataset({
+    #         features: ['ids', 'len'],
+    #         num_rows: 4007
+    #     })
+    # })
+
+
     # concatenate all the ids in each dataset into one large file we can use for training
     for split, dset in tokenized.items():
         arr_len = np.sum(dset['len'], dtype=np.uint64)
